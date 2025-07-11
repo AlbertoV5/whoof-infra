@@ -1,12 +1,24 @@
 {
-  "name": "whoof-infra",
-  "module": "index.ts",
+  "name": "@whoof/infra",
+  "version": "0.1.0",
+  "description": "SST application factory functions for consistent patterns",
+  "main": "src/index.ts",
   "type": "module",
-  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "keywords": [
+    "sst",
+    "serverless",
+    "infrastructure"
+  ],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@types/bun": "latest"
+    "typescript": "^5.0.0"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "sst": "^3.0.0"
   }
 }
