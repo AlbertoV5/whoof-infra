@@ -3,7 +3,7 @@
 export interface AppConfig {
   name: string
   path: string
-  domain: string
+  domain?: string
   databaseName: string
   devDatabase: string
   devPort: number
@@ -40,9 +40,11 @@ export function createApp(options: CreateAppOptions): AppResources {
   // Create the Next.js app
   const app = new sst.aws.Nextjs(config.name, {
     link: [db, ...additionalLinks],
-    domain: {
-      name: config.domain,
-    },
+    domain: config.domain
+      ? {
+          name: config.domain,
+        }
+      : undefined,
     vpc: vpc,
     path: config.path,
     environment: {
