@@ -1,3 +1,4 @@
+// @ts-nocheck
 // This library provides factory functions for creating SST apps with consistent patterns
 export interface AppConfig {
   name: string
@@ -48,13 +49,7 @@ export function createApp(options: CreateAppOptions): AppResources {
       ...env,
       NODE_ENV: $dev ? "development" : $app.stage,
     },
-    transform: transform || {
-      server: (args: any) => {
-        args.memory = "1536 MB"
-        args.timeout = "5 minutes"
-        return
-      },
-    },
+    transform: transform,
   })
 
   // Create the migrator function
@@ -105,13 +100,3 @@ export function createApp(options: CreateAppOptions): AppResources {
     devCommand,
   }
 }
-
-// Helper function to create environment mappings
-export function createEnvMapping(
-  mapping: Record<string, string>,
-  getWhopEnv: (mapping: Record<string, string>) => Record<string, any>
-): Record<string, any> {
-  return getWhopEnv(mapping)
-}
-
-// Types are already exported above

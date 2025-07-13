@@ -8,7 +8,19 @@ This library provides factory functions for creating SST apps with consistent pa
 
 ## Installation
 
-Since this is a workspace package, it's automatically available as `@whoof/infra`.
+Install directly from GitHub:
+
+```bash
+bun add git+git@github.com:AlbertoV5/whoof-infra.git
+```
+
+Or with npm:
+
+```bash
+npm install git+git@github.com:AlbertoV5/whoof-infra.git
+```
+
+In a workspace, it's automatically available as `@whoof/infra`.
 
 ## Features
 
