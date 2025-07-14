@@ -56,7 +56,7 @@ export function createApp(options: CreateAppOptions): AppResources {
 
   // Create the migrator function
   const migrator = new sst.aws.Function(`migrator-${config.name}`, {
-    handler: `${config.path}/db/index.migrator`,
+    handler: `${config.path}/lib/db/index.migrator`,
     link: [db],
     vpc,
     timeout: "1 minute",
@@ -66,7 +66,7 @@ export function createApp(options: CreateAppOptions): AppResources {
     },
     copyFiles: [
       {
-        from: `${config.path}/db/migrations`,
+        from: `${config.path}/lib/db/migrations`,
         to: `./migrations`,
       },
     ],
